@@ -1,32 +1,60 @@
+import FeaturedCard from "../components/ui/FeaturedCard";
+import { Bouquet } from "../types/bouquet";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import WhyUsItem from "../components/ui/WhyUsItem";
+import { motion } from "framer-motion";
 
-type Bouquet = {
+interface WhyUsItem {
   id: number;
-  name: string;
+  icon: string;
+  title: string;
   description: string;
-  imageUrl: string;
-};
+}
+
+const whyUsItems: WhyUsItem[] = [
+  {
+    id: 1,
+    icon: "🌸",
+    title: "Tazə Güllər",
+    description: "Yalnız təcrübəli gülçümüzün təcrübəsi ilə yaradılır"
+  },
+  {
+    id: 2,
+    icon: "🎨",
+    title: "Yaradıcı Dizaynlar",
+    description: "Hər tədbir üçün mükəmməl dizayn"
+  },
+  {
+    id: 3,
+    icon: "💝",
+    title: "Xüsusi Tədbirlər",
+    description: "Hər tədbir üçün mükəmməl dizayn"
+  }
+];
 
 const featuredBouquets: Bouquet[] = [
   {
     id: 1,
     name: "Klassik Gül Buketi",
     description: "Qırmızı güllərdən ibarət klassik buket",
-    imageUrl: "/bouquets/classic.jpg"
+    imageUrl: "/bouquets/classic.jpg",
+    price: "50 AZN"
   },
   {
     id: 2,
     name: "Romantik Buket",
     description: "Çəhrayı və ağ güllərdən ibarət romantik kompozisiya",
-    imageUrl: "/bouquets/romantic.jpg"
+    imageUrl: "/bouquets/romantic.jpg",
+    price: "65 AZN"
   },
   {
     id: 3,
     name: "Müasir Buket",
     description: "Müxtəlif rəngli güllərdən ibarət müasir dizayn",
-    imageUrl: "/bouquets/modern.jpg"
+    imageUrl: "/bouquets/modern.jpg",
+    price: "75 AZN"
   }
 ];
 
@@ -55,9 +83,17 @@ const Home: React.FC = () => {
             </p>
             <Link
               href="/gallery"
-              className="bg-white text-pink-600 px-8 py-3 rounded-full font-semibold hover:bg-pink-50 transition-colors"
+              className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-white transition-all duration-500 ease-out rounded-full shadow-lg group hover:shadow-xl bg-gradient-to-r from-white/10 via-white/5 to-white/10 backdrop-blur-sm hover:from-white/20 hover:via-white/10 hover:to-white/20"
             >
-              Gül Kolleksiyamızı Kəşf Et
+              <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-500 -translate-x-full bg-gradient-to-r from-pink-600 via-pink-500 to-pink-600 group-hover:translate-x-0 ease-in-out rounded-full">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </span>
+              <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-500 transform group-hover:translate-x-full ease-in-out">
+                Gül Kolleksiyamızı Kəşf Et
+              </span>
+              <span className="relative invisible">Gül Kolleksiyamızı Kəşf Et</span>
             </Link>
           </div>
         </div>
@@ -73,27 +109,16 @@ const Home: React.FC = () => {
               floristlərimiz hər gülü diqqətlə seçir və hər tədbirə  sevinc
               gətirən unikal, mənalı kompozisiyalar yaradır.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <div className="p-6">
-                <div className="text-4xl text-pink-500 mb-4">🌸</div>
-                <h3 className="text-xl font-semibold mb-2">Tazə Güllər</h3>
-                <p className="text-gray-600">
-                  Yalnız təcrübəli gülçümüzün təcrübəsi ilə yaradılır
-                </p>
-              </div>
-              <div className="p-6">
-                <div className="text-4xl text-pink-500 mb-4">🎨</div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Yaradıcı Dizaynlar
-                </h3>
-                <p className="text-gray-600">Hər tədbir üçün mükəmməl dizayn</p>
-              </div>
-              <div className="p-6">
-                <div className="text-4xl text-pink-500 mb-4">💝</div>
-                <h3 className="text-xl font-semibold mb-2">Xüsusi Tədbirlər</h3>
-                <p className="text-gray-600">Hər tədbir üçün mükəmməl dizayn</p>
-              </div>
-            </div>
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              {whyUsItems.map((item) => (
+                <WhyUsItem
+                  key={item.id}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -104,56 +129,65 @@ const Home: React.FC = () => {
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
             Ən çox satılan buketlərimiz
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredBouquets.map((bouquet) => (
-              <div
-                key={bouquet.id}
-                className="bg-white rounded-lg overflow-hidden shadow-lg"
-              >
-                <div className="relative h-80">
-                  <Image
-                    src={bouquet.imageUrl}
-                    alt={bouquet.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{bouquet.name}</h3>
-                  <p className="text-gray-600 mb-4">
-                    {bouquet.description}
-                  </p>
-                  <button className="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition-colors cursor-pointer">
-                    Ətraflı bax
-                  </button>
-                </div>
-              </div>
+              <FeaturedCard key={bouquet.id} bouquet={bouquet} />
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-b from-white to-pink-50">
         <div className="myContainer">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              Bizlə danış
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Xüsusi bir tədbir yaxınlaşır? Sizə kömək edək və mükəmməl gül
-              kompozisiyası yaradaq.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
-              {/* <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Visit Us</h3>
-                <p className="text-gray-600">123 Flower Street, City</p>
-                <p className="text-gray-600">Monday - Saturday: 9am - 6pm</p>
-              </div> */}
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Bizimlə Əlaqə</h3>
-                <p className="text-gray-600">Telefon: 055 551 21 02</p>
-                <p className="text-gray-600">Email: buketchim@gamil.com</p>
+            <div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-6">
+                Bizlə danış
+              </h2>
+              <p className="text-lg text-gray-600 mb-12">
+                Xüsusi bir tədbir yaxınlaşır? Sizə kömək edək və mükəmməl gül
+                kompozisiyası yaradaq.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-bl-full" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-tr-full" />
+                
+                <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  {/* <span className="text-pink-500 mr-3">📱</span> */}
+                  Telefon
+                </h3>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center">
+                    <span className="text-pink-500">📞</span>
+                  </div>
+                  <div>
+                    {/* <p className="text-sm text-gray-500 text-left">Əlaqə nömrəsi</p> */}
+                    <p className="text-gray-800 font-medium text-xl">055 551 21 02</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-bl-full" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-tr-full" />
+                
+                <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  {/* <span className="text-pink-500 mr-3">✉️</span> */}
+                  Email
+                </h3>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center">
+                    <span className="text-pink-500">📧</span>
+                  </div>
+                  <div>
+                    {/* <p className="text-sm text-gray-500 text-left">Elektron poçt</p> */}
+                    <p className="text-gray-800 font-medium text-xl">buketchim@gamil.com</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

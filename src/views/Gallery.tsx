@@ -1,12 +1,23 @@
 "use client";
 
+import FilteredBouquetCard from "../components/ui/FilteredBouquetCard";
+import GalleryFilterButton from "../components/ui/GalleryFilterButton";
 import { fadeIn, scaleIn } from "@/components/motion/MotionComponents";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const categories = ["Hamısı", "Toy", "Ad günü", "İldönümü", "Xüsusi Tədbir"];
-const bouquets = [
+
+interface Bouquet {
+  id: number;
+  name: string;
+  price: string;
+  category: string;
+  image: string;
+  description: string;
+}
+
+const bouquets: Bouquet[] = [
   {
     id: 1,
     name: "Bahar Romansi",
@@ -93,65 +104,31 @@ const Gallery: React.FC = () => {
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {categories.map((category) => (
-            <button
+            <GalleryFilterButton
               key={category}
+              category={category}
+              isSelected={selectedCategory === category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                selectedCategory === category
-                  ? "bg-pink-500 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100 cursor-pointer"
-              }`}
-            >
-              {category}
-            </button>
+            />
           ))}
         </motion.div>
 
         {/* Bouquet Grid */}
-        <motion.div
+        <motion.ul
           initial="initial"
           animate="animate"
           variants={scaleIn}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {filteredBouquets.map((bouquet) => (
-            <motion.div
+            <FilteredBouquetCard
               key={bouquet.id}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-              onHoverStart={() => setHoveredItem(bouquet.id)}
-              onHoverEnd={() => setHoveredItem(null)}
-              whileHover={{ y: -5 }}
-            >
-              <div className="relative h-64">
-                <Image
-                  src={bouquet.image}
-                  alt={bouquet.name}
-                  fill
-                  className="object-cover"
-                />
-                <div
-                  className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
-                    hoveredItem === bouquet.id ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    {bouquet.name}
-                  </h3>
-                  <span className="text-pink-500 font-bold">
-                    {bouquet.price}
-                  </span>
-                </div>
-                <p className="text-gray-600 mb-4">{bouquet.description}</p>
-                <button className="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition-colors">
-                  Add to Cart
-                </button>
-              </div>
-            </motion.div>
+              bouquet={bouquet}
+              hoveredItem={hoveredItem}
+              setHoveredItem={setHoveredItem}
+            />
           ))}
-        </motion.div>
+        </motion.ul>
       </div>
     </div>
   );

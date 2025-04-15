@@ -3,3 +3,7 @@
 .myContainer {
   @apply w-[90%] mx-auto;
 }
+
+ul {
+  list-style: none !important;
+}

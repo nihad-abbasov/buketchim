@@ -1,16 +1,16 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn } from '@/components/motion/MotionComponents';
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import React from 'react';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const menuItems = [
     { label: 'Ana Səhifə', href: '/' },
     { label: 'Haqqımızda', href: '/about' },
@@ -93,5 +93,3 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     </AnimatePresence>
   );
 };
-
-export default MobileMenu; 

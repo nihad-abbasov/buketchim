@@ -1,30 +1,39 @@
 "use client";
 
 import { fadeIn, scaleIn } from '@/components/motion/MotionComponents';
+import TeamMember from "../components/ui/TeamMember";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
-const teamMembers = [
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  description: string;
+}
+
+const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'Aysel Əliyeva',
     role: 'Baş Florist',
-    image: '/team/aysel.jpg',
+    image: '/team/person-1.jpg',
     description: '10 illik təcrübəsi ilə hər buketdə özünün bənzərsiz bədii görüşünü əks etdirir.'
   },
   {
     id: 2,
     name: 'Nərminə Hüseynova',
     role: 'Dizayner',
-    image: '/team/narmine.jpg',
+    image: '/team/person-2.jpg',
     description: 'Müasir və klassik üslubları harmoniya ilə birləşdirərək unikal buketlər yaradır.'
   },
   {
     id: 3,
     name: 'Leyla Quliyeva',
     role: 'Müştəri Xidmətləri',
-    image: '/team/leyla.jpg',
+    image: '/team/person-3.jpg',
     description: 'Hər müştərinin ehtiyaclarını anlamaq və onlara mükəmməl xidmət göstərmək üçün çalışır.'
   }
 ];
@@ -37,7 +46,7 @@ const About: React.FC = () => {
       <section className="relative h-[50vh] w-full">
         <div className="absolute inset-0">
           <Image
-            src="/hero-bg.jpg"
+            src="/about-bg.jpg"
             alt="About Buketchim"
             fill
             className="object-cover"
@@ -72,7 +81,7 @@ const About: React.FC = () => {
           >
             <h2 className="text-3xl font-bold text-gray-800 mb-6">Bizim Hekayəmiz</h2>
             <p className="text-lg text-gray-600 mb-8">
-              2024-cü ildə yaradılan Buketchim, güllərlə insanların həyatına gözəllik və sevinc gətirmək məqsədi ilə yola çıxdı. 
+              2024-cü ildə yaradılan Buketchim, güllərlə insanların həyatına gözəllik və sevinc gətirmək məqsədi ilə yola çıxdı.
               Hər bir buketimizdə diqqətlə seçilmiş güllər və zərif düzülüşlərlə müştərilərimizin xüsusi anlarını daha da xüsusi edirik.
             </p>
           </motion.div>
@@ -94,30 +103,16 @@ const About: React.FC = () => {
             </p>
           </motion.div>
 
-          <motion.div
+          <motion.ul
             initial="initial"
             animate="animate"
             variants={scaleIn}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {teamMembers.map((member) => (
-              <div key={member.id} className="bg-white rounded-xl overflow-hidden shadow-lg">
-                <div className="relative h-64">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                  <p className="text-pink-500 mb-2">{member.role}</p>
-                  <p className="text-gray-600">{member.description}</p>
-                </div>
-              </div>
+              <TeamMember key={member.id} member={member} />
             ))}
-          </motion.div>
+          </motion.ul>
         </div>
       </section>
     </div>

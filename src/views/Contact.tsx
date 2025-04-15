@@ -1,9 +1,36 @@
 "use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { fadeIn, scaleIn } from '@/components/motion/MotionComponents';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import ContactItem from '../components/ui/ContactItem';
+import React, { useState } from 'react';
+import { IconType } from 'react-icons';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+interface ContactItem {
+  icon: IconType;
+  title: string;
+  content: string;
+}
+
+const contactItems: ContactItem[] = [
+  {
+    icon: FaPhone,
+    title: "Telefon",
+    content: "055 551 21 02"
+  },
+  {
+    icon: FaEnvelope,
+    title: "Email",
+    content: "buketchim@gamil.com"
+  },
+  {
+    icon: FaMapMarkerAlt,
+    title: "Ünvan",
+    content: "Bakı şəhəri"
+  }
+];
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +57,7 @@ const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[40vh] w-full">
+      <section className="relative h-[50vh] w-full">
         <div className="absolute inset-0">
           <Image
             src="/contact-hero.jpg"
@@ -143,37 +170,16 @@ const Contact: React.FC = () => {
             >
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6">Əlaqə Məlumatları</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="text-pink-500 mr-4 mt-1">📍</div>
-                    <div>
-                      <h3 className="font-semibold text-gray-800">Ünvan</h3>
-                      <p className="text-gray-600">123 Gül Küçəsi, Bakı, Azərbaycan</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="text-pink-500 mr-4 mt-1">📞</div>
-                    <div>
-                      <h3 className="font-semibold text-gray-800">Telefon</h3>
-                      <p className="text-gray-600">+994 50 123 45 67</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="text-pink-500 mr-4 mt-1">✉️</div>
-                    <div>
-                      <h3 className="font-semibold text-gray-800">Email</h3>
-                      <p className="text-gray-600">info@buketchim.az</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="text-pink-500 mr-4 mt-1">⏰</div>
-                    <div>
-                      <h3 className="font-semibold text-gray-800">İş Saatları</h3>
-                      <p className="text-gray-600">Bazar ertəsindən Şənbəyə qədər: 09:00 - 20:00</p>
-                      <p className="text-gray-600">Bazar: 10:00 - 18:00</p>
-                    </div>
-                  </div>
-                </div>
+                <ul className="space-y-4">
+                  {contactItems.map((item, index) => (
+                    <ContactItem
+                      key={index}
+                      icon={item.icon}
+                      title={item.title}
+                      content={item.content}
+                    />
+                  ))}
+                </ul>
               </div>
 
               {/* Map */}
