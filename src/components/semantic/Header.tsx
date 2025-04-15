@@ -54,7 +54,7 @@ export const Header = () => {
 
           <div className="flex items-center gap-4">
             <Link
-              href="/gallery"
+              href="https://instagram.com/buketchim"
               className="hidden md:block bg-pink-500 text-white px-6 py-2 rounded-full font-medium hover:bg-pink-600 transition-colors"
             >
               Sifariş Et

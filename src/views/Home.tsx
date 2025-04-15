@@ -2,6 +2,34 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+type Bouquet = {
+  id: number;
+  name: string;
+  description: string;
+  imageUrl: string;
+};
+
+const featuredBouquets: Bouquet[] = [
+  {
+    id: 1,
+    name: "Klassik Gül Buketi",
+    description: "Qırmızı güllərdən ibarət klassik buket",
+    imageUrl: "/bouquets/classic.jpg"
+  },
+  {
+    id: 2,
+    name: "Romantik Buket",
+    description: "Çəhrayı və ağ güllərdən ibarət romantik kompozisiya",
+    imageUrl: "/bouquets/romantic.jpg"
+  },
+  {
+    id: 3,
+    name: "Müasir Buket",
+    description: "Müxtəlif rəngli güllərdən ibarət müasir dizayn",
+    imageUrl: "/bouquets/modern.jpg"
+  }
+];
+
 const Home: React.FC = () => {
   return (
     <main className="w-full">
@@ -74,26 +102,26 @@ const Home: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="myContainer">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-            Ən çox satılan buketlərimiz 
+            Ən çox satılan buketlərimiz
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredBouquets.map((bouquet) => (
               <div
-                key={item}
+                key={bouquet.id}
                 className="bg-white rounded-lg overflow-hidden shadow-lg"
               >
-                <div className="relative h-64">
+                <div className="relative h-80">
                   <Image
-                    src={`/bouquet-${item}.jpg`}
-                    alt={`Featured Bouquet ${item}`}
+                    src={bouquet.imageUrl}
+                    alt={bouquet.name}
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">Bahar Romansi</h3>
+                  <h3 className="text-xl font-semibold mb-2">{bouquet.name}</h3>
                   <p className="text-gray-600 mb-4">
-                    Canlı yay güllərinin möhtəşəm düzülüşü
+                    {bouquet.description}
                   </p>
                   <button className="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition-colors cursor-pointer">
                     Ətraflı bax

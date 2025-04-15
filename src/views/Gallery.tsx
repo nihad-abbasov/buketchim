@@ -12,7 +12,7 @@ const bouquets = [
     name: "Bahar Romansi",
     price: "89.99 ₼",
     category: "Toy",
-    image: "/bouquets/spring-romance.jpg",
+    image: "/bouquets/classic.jpg",
     description: "Zərif pastel rənglərdə bahar güllərinin incə düzülüşü",
   },
   {
@@ -20,7 +20,7 @@ const bouquets = [
     name: "Yay Nəsimi",
     price: "79.99 ₼",
     category: "Ad günü",
-    image: "/bouquets/summer-breeze.jpg",
+    image: "/bouquets/modern.jpg",
     description: "Canlı yay güllərinin möhtəşəm düzülüşü",
   },
   {
@@ -28,7 +28,7 @@ const bouquets = [
     name: "Əbədi Sevgi",
     price: "129.99 ₼",
     category: "İldönümü",
-    image: "/bouquets/eternal-love.jpg",
+    image: "/bouquets/romantic.jpg",
     description: "Zərif yaşıllıqlarla lüks qırmızı qızılgüllər",
   },
   {
@@ -36,7 +36,7 @@ const bouquets = [
     name: "Bağça Zövqü",
     price: "69.99 ₼",
     category: "Xüsusi Tədbir",
-    image: "/bouquets/garden-delight.jpg",
+    image: "/bouquets/romantic.jpg",
     description: "Qarışıq bağ güllərinin cazibədar düzülüşü",
   },
   {
@@ -44,7 +44,7 @@ const bouquets = [
     name: "Gəlin Sevinci",
     price: "149.99 ₼",
     category: "Toy",
-    image: "/bouquets/bridal-bliss.jpg",
+    image: "/bouquets/classic.jpg",
     description: "Gəlin buketləri üçün mükəmməl ağ güllər",
   },
   {
@@ -52,7 +52,7 @@ const bouquets = [
     name: "Bayram",
     price: "99.99 ₼",
     category: "Ad günü",
-    image: "/bouquets/celebration.jpg",
+    image: "/bouquets/modern.jpg",
     description: "Hər bayram üçün rəngarəng düzülüş",
   },
 ];

@@ -79,7 +79,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
               <div className="mt-8">
                 <Link
-                  href="/gallery"
+                  href="/https://instagram.com/buketchim"
                   className="block w-full bg-pink-500 text-white text-center py-3 rounded-lg hover:bg-pink-600 transition-colors font-medium"
                   onClick={onClose}
                 >
