@@ -55,6 +55,20 @@ const featuredBouquets: Bouquet[] = [
     description: "Müxtəlif rəngli güllərdən ibarət müasir dizayn",
     imageUrl: "/bouquets/modern.jpg",
     price: "75 AZN"
+  },
+  {
+    id: 4,
+    name: "Müasir Buket",
+    description: "Müxtəlif rəngli güllərdən ibarət müasir dizayn",
+    imageUrl: "/bouquets/modern.jpg",
+    price: "75 AZN"
+  },
+  {
+    id: 5,
+    name: "Müasir Buket",
+    description: "Müxtəlif rəngli güllərdən ibarət müasir dizayn",
+    imageUrl: "/bouquets/modern.jpg",
+    price: "75 AZN"
   }
 ];
 
@@ -102,7 +116,7 @@ const Home: React.FC = () => {
       {/* Who We Are Section */}
       <section className="py-20 bg-white">
         <div className="myContainer">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gray-800 mb-6">Biz Kimik</h2>
             <p className="text-lg text-gray-600 mb-8">
               Buketchim inanır ki, hər buket bir hekayə danışır. Peşəkar
@@ -129,7 +143,7 @@ const Home: React.FC = () => {
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
             Ən çox satılan buketlərimiz
           </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {featuredBouquets.map((bouquet) => (
               <FeaturedCard key={bouquet.id} bouquet={bouquet} />
             ))}
@@ -140,7 +154,7 @@ const Home: React.FC = () => {
       {/* Contact Section */}
       <section className="py-20 bg-gradient-to-b from-white to-pink-50">
         <div className="myContainer">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <div>
               <h2 className="text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-6">
                 Bizlə danış
@@ -151,11 +165,11 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-bl-full" />
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-tr-full" />
-                
+
                 <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                   {/* <span className="text-pink-500 mr-3">📱</span> */}
                   Telefon
@@ -174,7 +188,7 @@ const Home: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-bl-full" />
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-tr-full" />
-                
+
                 <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                   {/* <span className="text-pink-500 mr-3">✉️</span> */}
                   Email
@@ -186,6 +200,23 @@ const Home: React.FC = () => {
                   <div>
                     {/* <p className="text-sm text-gray-500 text-left">Elektron poçt</p> */}
                     <p className="text-gray-800 font-medium text-xl">buketchim@gamil.com</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-bl-full" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-tr-full" />
+
+                <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  Instagram
+                </h3>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center">
+                    <span className="text-pink-500">📸</span>
+                  </div>
+                  <div>
+                    <p className="text-gray-800 font-medium text-xl">@buketchim</p>
                   </div>
                 </div>
               </div>

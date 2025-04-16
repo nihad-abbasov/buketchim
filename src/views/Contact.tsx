@@ -186,14 +186,13 @@ const Contact: React.FC = () => {
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="h-64 w-full">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428490145603!2d49.85175681535467!3d40.37719097936978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sBaku!5e0!3m2!1sen!2s!4v1645541234567!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d901.0077128905477!2d49.87056962625365!3d40.40209752438401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d0032182725%3A0xc724405e3ad6765!2sNariman%20Narimanov%20park!5e1!3m2!1sen!2saz!4v1744788293225!5m2!1sen!2saz"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
+                    referrerPolicy="no-referrer-when-downgrade" />
                 </div>
               </div>
             </motion.div>

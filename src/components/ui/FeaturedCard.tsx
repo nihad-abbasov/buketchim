@@ -17,7 +17,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({ bouquet }) => {
       <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-tr-full" />
 
       {/* Image container with gradient overlay */}
-      <div className="relative h-80 overflow-hidden">
+      <div className="relative h-40 overflow-hidden">
         <Image
           src={bouquet.imageUrl}
           alt={bouquet.name}
@@ -29,14 +29,14 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({ bouquet }) => {
       </div>
 
       <div className="relative p-6">
-        <div className="flex justify-between items-start mb-3">
+        <div className="flex flex-col justify-between items-start mb-3">
           <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
             {bouquet.name}
           </h3>
           <div className="flex flex-col items-center">
             <div className="relative">
               <div className="absolute bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-lg  group-hover:blur-md transition-all duration-300" />
-              <div className="relative bg-white/80 backdrop-blur-sm px-3 py-1 rounded-lg border border-pink-100">
+              <div className="relative pt-2">
                 <span className="text-lg font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
                   {bouquet.price}
                 </span>

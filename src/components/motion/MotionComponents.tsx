@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export const MotionDiv = motion.div;
-export const MotionHeader = motion.header;
-export const MotionSection = motion.section;
+export const MotionDiv = motion.create("div");
+export const MotionHeader = motion.create("header");
+export const MotionSection = motion.create("section");
 export const MotionButton = motion.button;
-export const MotionLink = motion(Link);
+export const MotionLink = motion.create(Link);
 
 // Reusable animation variants
 export const fadeIn = {
