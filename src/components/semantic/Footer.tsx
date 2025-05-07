@@ -79,6 +79,7 @@ export const Footer = () => {
                 <Link
                   key={social.id}
                   href={social.url}
+                  target="_blank"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   {social.icon}

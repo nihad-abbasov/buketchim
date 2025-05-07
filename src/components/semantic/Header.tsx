@@ -54,6 +54,7 @@ export const Header = () => {
           <div className="flex items-center gap-4">
             <Link
               href="https://instagram.com/buketchim"
+              target="_blank"
               className="hidden md:block relative overflow-hidden group bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-2.5 rounded-full font-medium transition-all duration-300 hover:from-pink-600 hover:to-pink-700 hover:shadow-lg hover:shadow-pink-500/30"
             >
               <span className="relative z-10 flex items-center justify-center">
