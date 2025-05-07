@@ -52,7 +52,7 @@ const quickLinks: QuickLink[] = [
 
 const contactInfo: ContactInfo[] = [
   { id: 1, label: "Phone", value: "055 551 21 02" },
-  { id: 2, label: "Email", value: "buketchim@gamil.com" }
+  { id: 2, label: "Email", value: "buketchim@gmail.com" }
 ];
 
 export const Footer = () => {

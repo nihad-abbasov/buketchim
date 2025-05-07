@@ -5,6 +5,7 @@ import WhyUsItem from "@/components/ui/WhyUsItem";
 import { useRouter } from "next/navigation";
 import { Bouquet } from "@/types/bouquet";
 import { useState } from "react";
+import Image from "next/image";
 import {
   PageTransition,
   FadeIn,
@@ -15,7 +16,6 @@ import {
   StaggerItem,
   HoverScale,
 } from "@/components/animations/AnimationComponents";
-import Image from "next/image";
 
 const Home = () => {
   const router = useRouter();
@@ -70,7 +70,7 @@ const Home = () => {
     <PageTransition>
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center">
+        <section className="relative h-[40vh] md:h-[92vh] flex items-center justify-center">
           <div className="absolute inset-0">
             <Image
               src="/hero-bg.jpg"
@@ -94,8 +94,8 @@ const Home = () => {
             </SlideUp>
             <SlideUp delay={0.6}>
               <button
-                onClick={() => router.push("/catalog")}
-                className="bg-white text-primary px-8 py-3 rounded-full text-lg font-medium hover:bg-white/90 transition-colors"
+                onClick={() => router.push("/gallery")}
+                className="bg-white text-primary px-8 py-3 rounded-full text-lg font-medium hover:bg-white/90 transition-colors cursor-pointer"
               >
                 Kataloqa bax
               </button>
@@ -133,7 +133,7 @@ const Home = () => {
                 Niyə Biz?
               </h2>
             </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 list-none">
               {whyUsItems.map((item, index) => (
                 <SlideInLeft key={index} delay={0.2 * index}>
                   <WhyUsItem {...item} />
@@ -144,27 +144,30 @@ const Home = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary text-white">
-          <div className="container mx-auto px-4 text-center">
+        <section className="py-20 bg-gradient-to-br from-pink-100 via-pink-500 to-pink-300 text-white relative overflow-hidden">
+          <div className="container mx-auto px-4 text-center relative z-10">
             <SlideInRight>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-lg">
                 Xüsusi Təkliflər
               </h2>
             </SlideInRight>
             <SlideInRight delay={0.2}>
-              <p className="text-xl mb-8">
-                İndi sifariş verin və 10% endirim qazanın
+              <p className="text-xl mb-8 opacity-90">
+                İndi sifariş verin və <span className="font-semibold text-yellow-200">10% endirim</span> qazanın
               </p>
             </SlideInRight>
             <SlideInRight delay={0.4}>
               <button
                 onClick={() => router.push("/contact")}
-                className="bg-white text-primary px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
+                className="bg-white text-pink-600 px-10 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-pink-50 hover:text-pink-700 transition-colors duration-200 border-2 border-white cursor-pointer"
               >
                 Əlaqə
               </button>
             </SlideInRight>
           </div>
+          {/* Decorative blurred circle */}
+          <div className="absolute -top-20 -left-20 w-72 h-72 bg-pink-400 opacity-30 rounded-full blur-3xl z-0" />
+          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-pink-700 opacity-20 rounded-full blur-3xl z-0" />
         </section>
       </main>
     </PageTransition>

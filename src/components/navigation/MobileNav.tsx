@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { MotionDiv, MotionLink } from "../motion/MotionComponents";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);

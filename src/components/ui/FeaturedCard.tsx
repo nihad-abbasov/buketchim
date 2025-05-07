@@ -1,4 +1,5 @@
 import { Bouquet } from "../../types/bouquet";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import React from "react";
 
@@ -7,6 +8,12 @@ interface FeaturedCardProps {
 }
 
 const FeaturedCard: React.FC<FeaturedCardProps> = ({ bouquet }) => {
+  const router = useRouter();
+
+  const handleDetailsClick = () => {
+    router.push(`/bouquets/${bouquet.id}`);
+  };
+
   return (
     <li className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
       {/* Gradient background overlay on hover */}
@@ -35,14 +42,13 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({ bouquet }) => {
           </h3>
           <div className="flex flex-col items-center">
             <div className="relative">
-              <div className="absolute bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-lg  group-hover:blur-md transition-all duration-300" />
+              <div className="absolute bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-lg group-hover:blur-md transition-all duration-300" />
               <div className="relative pt-2">
                 <span className="text-lg font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
                   {bouquet.price}
                 </span>
               </div>
             </div>
-            {/* <span className="text-xs text-gray-400 mb-1">Başlayaraq</span> */}
           </div>
         </div>
 
@@ -50,7 +56,10 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({ bouquet }) => {
           {bouquet.description}
         </p>
 
-        <button className="w-full py-3 px-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl font-semibold hover:from-pink-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl cursor-pointer">
+        <button 
+          onClick={handleDetailsClick}
+          className="w-full py-3 px-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl font-semibold hover:from-pink-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl cursor-pointer"
+        >
           Ətraflı bax
         </button>
       </div>

@@ -2,8 +2,8 @@
 
 import { fadeIn } from '@/components/motion/MotionComponents';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import React from 'react';
 
 interface MobileMenuProps {

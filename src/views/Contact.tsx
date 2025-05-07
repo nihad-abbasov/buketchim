@@ -23,7 +23,7 @@ const contactItems: ContactItem[] = [
   {
     icon: FaEnvelope,
     title: "Email",
-    content: "buketchim@gamil.com"
+    content: "buketchim@gmail.com"
   },
   {
     icon: FaMapMarkerAlt,
