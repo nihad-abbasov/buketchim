@@ -17,9 +17,9 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({ bouquet }) => {
       <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-tr-full" />
 
       {/* Image container with gradient overlay */}
-      <div className="relative h-40 overflow-hidden">
+      <div className="relative h-60 overflow-hidden">
         <Image
-          src={bouquet.imageUrl}
+          src={bouquet.image}
           alt={bouquet.name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

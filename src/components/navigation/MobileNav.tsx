@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MotionDiv, MotionLink } from "../motion/MotionComponents";
+import Image from "next/image";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,14 @@ const MobileNav = () => {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-primary">
-            Logo
+            <Image
+              src="/logo.png"
+              alt="Buketchim"
+              width={150}
+              height={50}
+              sizes="100vw"
+              className="h-12 w-auto mb-4 brightness-200"
+            />
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -66,11 +74,10 @@ const MobileNav = () => {
               <MotionLink
                 key={link.href}
                 href={link.href}
-                className={`block text-lg font-medium transition-colors duration-300 ${
-                  pathname === link.href
-                    ? "text-primary"
-                    : "text-gray-600 hover:text-primary"
-                }`}
+                className={`block text-lg font-medium transition-colors duration-300 ${pathname === link.href
+                  ? "text-primary"
+                  : "text-gray-600 hover:text-primary"
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

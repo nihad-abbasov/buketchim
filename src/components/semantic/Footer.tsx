@@ -67,6 +67,7 @@ export const Footer = () => {
               alt="Buketchim"
               width={150}
               height={50}
+              sizes="100vw"
               className="h-12 w-auto mb-4 brightness-200"
             />
             <p className="text-gray-400 mb-4">
