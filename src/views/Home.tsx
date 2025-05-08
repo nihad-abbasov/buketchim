@@ -16,6 +16,11 @@ import {
   StaggerItem,
   HoverScale,
 } from "@/components/animations/AnimationComponents";
+import Testimonials from "@/components/sections/Testimonials";
+import Statistics from "@/components/sections/Statistics";
+import FAQ from "@/components/sections/FAQ";
+import InstagramFeed from "@/components/sections/InstagramFeed";
+import Process from "@/components/sections/Process";
 
 const Home = () => {
   const router = useRouter();
@@ -125,6 +130,8 @@ const Home = () => {
           </div>
         </section>
 
+        <Statistics />
+
         {/* Why Us Section */}
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
@@ -142,6 +149,14 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        <Testimonials />
+
+        <FAQ />
+
+        <Process />
+
+        <InstagramFeed />
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-pink-100 via-pink-500 to-pink-300 text-white relative overflow-hidden">
